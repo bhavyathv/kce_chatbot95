@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>KCE AI Assistant</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- ================= HEADER ================= -->
+
+    <header class="header">
+
+        <div class="college-logo">
+            <img src="{{ url_for('static', filename='kce-logo.png') }}"
+                 alt="Kings College of Engineering Logo">
+        </div>
+
+        <div class="header-text">
+
+            <h1>Kings College of Engineering</h1>
+
+            <p>
+                KCE Virtual Information Assistant
+            </p>
+
+        </div>
+
+        <div class="online">
+
+            <span></span>
+            Online
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= CHAT ================= -->
+
+    <main class="chat-container" id="chatArea">
+
+        <!-- BOT MESSAGE -->
+
+        <div class="message-row bot-row">
+
+            <div class="avatar">
+                K
+            </div>
+
+            <div class="bubble bot-bubble">
+
+                <div class="bot-name">
+                    KCE Assistant
+                </div>
+
+                <div class="message-text">
+
+                    Hello! 👋
+                    <br><br>
+
+                    Welcome to <b>Kings College of Engineering</b>.
+                    I'm your virtual college assistant.
+
+                    <br><br>
+
+                    I can help you with courses, departments,
+                    admissions, placements, facilities,
+                    hostel, library, contact details and more.
+
+                </div>
+
+                <div class="message-time">
+                    Just now
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- WELCOME QUESTIONS -->
+
+        <div class="suggestions">
+
+            <button onclick="quickMessage('What courses are available?')">
+                🎓 Courses
+            </button>
+
+            <button onclick="quickMessage('What departments are available?')">
+                🏫 Departments
+            </button>
+
+            <button onclick="quickMessage('What facilities are available?')">
+                🏢 Facilities
+            </button>
+
+            <button onclick="quickMessage('What are the contact details?')">
+                📞 Contact
+            </button>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= INPUT ================= -->
+
+    <div class="input-section">
+
+        <div class="input-box">
+
+            <input
+                type="text"
+                id="messageInput"
+                placeholder="Ask me anything about KCE..."
+                autocomplete="off"
+            >
+
+            <button
+                id="sendButton"
+                onclick="sendMessage()">
+
+                ➤
+
+            </button>
+
+        </div>
+
+
+        <!-- ================= RECOMMENDED QUESTIONS ================= -->
+
+        <div class="recommended-section">
+
+            <div class="recommended-title">
+                🔍 Recommended Questions
+            </div>
+
+            <div class="recommended-questions">
+
+                <button onclick="quickMessage('What courses does KCE offer?')">
+                    🎓 Courses
+                </button>
+
+                <button onclick="quickMessage('Tell me about KCE hostel')">
+                    🏠 Hostel
+                </button>
+
+                <button onclick="quickMessage('What is the admission process?')">
+                    📝 Admission
+                </button>
+
+                <button onclick="quickMessage('Tell me about placements')">
+                    💼 Placements
+                </button>
+
+                <button onclick="quickMessage('What facilities does KCE have?')">
+                    🏢 Facilities
+                </button>
+
+                <button onclick="quickMessage('Where is KCE located?')">
+                    📍 Location
+                </button>
+
+                <button onclick="quickMessage('Who are the department faculty?')">
+                    👨‍🏫 Faculty
+                </button>
+
+                <button onclick="quickMessage('What are the contact details?')">
+                    📞 Contact
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- OFFICIAL WEBSITE -->
+
+        <a
+            href="https://www.kingsengg.edu.in/"
+            target="_blank"
+            class="official-website"
+        >
+            🌐 Visit Official KCE Website
+        </a>
+
+
+        <p class="input-hint">
+            KCE Assistant can help you find college information
+        </p>
+
+    </div>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <span>●</span>
+
+        Kings College of Engineering
+
+        <span>•</span>
+
+        Virtual Assistant
+
+    </footer>
+
+</div>
+
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>

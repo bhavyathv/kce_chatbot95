@@ -1,0 +1,964 @@
+/* =====================================================
+   KCE PROFESSIONAL CHATBOT
+   PALE YELLOW + DARK BLUE + DARK GOLD
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    font-family:
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #fff6c9 0%,
+            #f5e7aa 35%,
+            #0b2942 100%
+        );
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 25px;
+
+}
+
+
+/* =====================================================
+   MAIN APPLICATION
+===================================================== */
+
+.app {
+
+    width: 440px;
+
+    height: 720px;
+
+    max-height: 92vh;
+
+    background: #fffbea;
+
+    border-radius: 28px;
+
+    overflow: hidden;
+
+    display: flex;
+
+    flex-direction: column;
+
+    border: 1px solid #d2b24c;
+
+    box-shadow:
+        0 25px 70px rgba(5, 29, 48, 0.45);
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    min-height: 92px;
+
+    padding: 15px 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #b88a0a,
+            #8b6505
+        );
+
+    color: white;
+
+    position: relative;
+
+}
+
+
+/* small gold shine */
+
+.header::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+
+    right: 0;
+
+    bottom: 0;
+
+    height: 3px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #fff1a8,
+            #d8b83d,
+            #fff1a8
+        );
+
+}
+
+
+/* college logo */
+
+.college-icon {
+
+    width: 50px;
+
+    height: 50px;
+
+    flex-shrink: 0;
+
+    border-radius: 15px;
+
+    background: #fff8d8;
+
+    color: #0a3150;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    box-shadow:
+        0 5px 12px rgba(0,0,0,0.15);
+
+}
+
+
+/* title */
+
+.header-text {
+
+    flex: 1;
+
+}
+
+
+.header-text h1 {
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    line-height: 1.25;
+
+}
+
+
+.header-text p {
+
+    margin-top: 4px;
+
+    font-size: 10px;
+
+    opacity: 0.9;
+
+}
+
+
+/* online */
+
+.online {
+
+    font-size: 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 5px;
+
+}
+
+
+.online span {
+
+    width: 8px;
+
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #e7ff9b;
+
+    box-shadow:
+        0 0 8px #e7ff9b;
+
+}
+
+
+/* =====================================================
+   CHAT AREA
+===================================================== */
+
+.chat-container {
+
+    flex: 1;
+
+    overflow-y: auto;
+
+    padding: 22px 17px;
+
+    background:
+
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(255, 244, 177, 0.8),
+            transparent 30%
+        ),
+
+        linear-gradient(
+            180deg,
+            #fffbed,
+            #f9edbd
+        );
+
+}
+
+
+/* scrollbar */
+
+.chat-container::-webkit-scrollbar {
+
+    width: 5px;
+
+}
+
+.chat-container::-webkit-scrollbar-thumb {
+
+    background: #b89427;
+
+    border-radius: 20px;
+
+}
+
+
+/* =====================================================
+   MESSAGE ROW
+===================================================== */
+
+.message-row {
+
+    display: flex;
+
+    gap: 9px;
+
+    margin-bottom: 20px;
+
+}
+
+
+.bot-row {
+
+    justify-content: flex-start;
+
+}
+
+
+/* =====================================================
+   BOT AVATAR
+===================================================== */
+
+.avatar {
+
+    width: 32px;
+
+    height: 32px;
+
+    flex-shrink: 0;
+
+    border-radius: 11px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #124b72,
+            #082a45
+        );
+
+    color: #fff4b0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 4px 9px rgba(6, 38, 62, 0.2);
+
+}
+
+
+/* =====================================================
+   CHAT BUBBLE
+===================================================== */
+
+.bubble {
+
+    max-width: 82%;
+
+    padding: 14px 16px;
+
+    border-radius: 19px;
+
+    font-size: 13px;
+
+    line-height: 1.55;
+
+}
+
+
+/* BOT */
+
+.bot-bubble {
+
+    background:
+        linear-gradient(
+            145deg,
+            #e5f1f5,
+            #d8eaf0
+        );
+
+    color: #173b55;
+
+    border:
+        1px solid #c6dce3;
+
+    border-top-left-radius: 5px;
+
+    box-shadow:
+        0 5px 15px rgba(20, 56, 78, 0.09);
+
+}
+
+
+/* bot name */
+
+.bot-name {
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    color: #0a3b60;
+
+    margin-bottom: 7px;
+
+}
+
+
+/* time */
+
+.message-time {
+
+    font-size: 9px;
+
+    color: #718895;
+
+    margin-top: 9px;
+
+}
+
+
+/* =====================================================
+   USER MESSAGE
+===================================================== */
+
+.user-row {
+
+    display: flex;
+
+    justify-content: flex-end;
+
+    margin-bottom: 20px;
+
+}
+
+
+.user-bubble {
+
+    max-width: 75%;
+
+    padding: 12px 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #0b4773,
+            #062b48
+        );
+
+    color: white;
+
+    border-radius: 19px;
+
+    border-top-right-radius: 5px;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+    box-shadow:
+        0 5px 14px rgba(4, 35, 58, 0.23);
+
+}
+
+
+.user-time {
+
+    display: block;
+
+    margin-top: 6px;
+
+    font-size: 9px;
+
+    color: #c5dbea;
+
+}
+
+
+/* =====================================================
+   SUGGESTIONS
+===================================================== */
+
+.suggestions {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 7px;
+
+    margin: 4px 0 15px 41px;
+
+}
+
+
+.suggestions button {
+
+    border:
+
+        1px solid #b89938;
+
+    background:
+
+        rgba(255, 253, 233, 0.9);
+
+    color: #123b59;
+
+    padding: 8px 12px;
+
+    border-radius: 18px;
+
+    font-size: 11px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+}
+
+
+.suggestions button:hover {
+
+    background: #0b385c;
+
+    color: white;
+
+    border-color: #0b385c;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =====================================================
+   TYPING INDICATOR
+===================================================== */
+
+.typing {
+
+    display: flex;
+
+    gap: 4px;
+
+    padding: 5px 0;
+
+}
+
+
+.typing span {
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #55788d;
+
+    animation: typing 1.2s infinite;
+
+}
+
+
+.typing span:nth-child(2) {
+
+    animation-delay: 0.15s;
+
+}
+
+
+.typing span:nth-child(3) {
+
+    animation-delay: 0.3s;
+
+}
+
+
+@keyframes typing {
+
+    0%, 60%, 100% {
+
+        transform: translateY(0);
+
+        opacity: 0.4;
+
+    }
+
+    30% {
+
+        transform: translateY(-4px);
+
+        opacity: 1;
+
+    }
+
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.input-section {
+
+    background: #fffbed;
+
+    padding: 12px 14px 8px;
+
+    border-top:
+        1px solid #dfcc82;
+
+}
+
+
+.input-box {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    padding: 5px;
+
+    border:
+        1px solid #c8aa4d;
+
+    border-radius: 28px;
+
+    background: #fffef8;
+
+    box-shadow:
+        0 3px 10px rgba(70, 58, 12, 0.08);
+
+}
+
+
+.input-box input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    background: transparent;
+
+    padding: 10px 12px;
+
+    color: #163d58;
+
+    font-size: 13px;
+
+}
+
+
+.input-box input::placeholder {
+
+    color: #80909a;
+
+}
+
+
+.input-box button {
+
+    width: 39px;
+
+    height: 39px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #104d77,
+            #062b48
+        );
+
+    color: white;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+
+}
+
+
+.input-box button:hover {
+
+    transform: scale(1.08);
+
+    box-shadow:
+        0 4px 12px rgba(7, 42, 70, 0.3);
+
+}
+
+
+.input-hint {
+
+    text-align: center;
+
+    font-size: 8px;
+
+    color: #8b7835;
+
+    margin-top: 6px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    height: 27px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 6px;
+
+    background: #fffbed;
+
+    color: #806b27;
+
+    font-size: 9px;
+
+}
+
+
+footer span {
+
+    color: #b38a13;
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 600px) {
+
+    body {
+
+        padding: 0;
+
+    }
+
+    .app {
+
+        width: 100%;
+
+        height: 100vh;
+
+        max-height: none;
+
+        border-radius: 0;
+
+        border: none;
+
+    }
+
+}/* =====================================================
+   KCE LOGO
+===================================================== */
+
+.college-logo {
+
+    width: 58px;
+    height: 58px;
+
+    flex-shrink: 0;
+
+    background: #fffdf0;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.18);
+
+}
+
+
+.college-logo img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    padding: 3px;
+
+}
+
+
+/* =====================================================
+   RECOMMENDED QUESTIONS
+===================================================== */
+
+.recommended-section {
+
+    margin-top: 10px;
+
+}
+
+
+.recommended-title {
+
+    font-size: 10px;
+
+    font-weight: 700;
+
+    color: #806b27;
+
+    margin-bottom: 7px;
+
+    text-align: left;
+
+}
+
+
+.recommended-questions {
+
+    display: flex;
+
+    gap: 6px;
+
+    overflow-x: auto;
+
+    padding-bottom: 4px;
+
+    scrollbar-width: thin;
+
+}
+
+
+.recommended-questions::-webkit-scrollbar {
+
+    height: 4px;
+
+}
+
+
+.recommended-questions::-webkit-scrollbar-thumb {
+
+    background: #c8aa4d;
+
+    border-radius: 10px;
+
+}
+
+
+.recommended-questions button {
+
+    flex-shrink: 0;
+
+    border: 1px solid #c8aa4d;
+
+    background: #fffdf0;
+
+    color: #123b59;
+
+    padding: 7px 10px;
+
+    border-radius: 16px;
+
+    font-size: 10px;
+
+    cursor: pointer;
+
+    transition: all 0.2s ease;
+
+}
+
+
+.recommended-questions button:hover {
+
+    background: #0b385c;
+
+    color: white;
+
+    border-color: #0b385c;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =====================================================
+   OFFICIAL WEBSITE BUTTON
+===================================================== */
+
+.official-website {
+
+    display: block;
+
+    text-align: center;
+
+    text-decoration: none;
+
+    margin-top: 8px;
+
+    padding: 8px 12px;
+
+    border-radius: 18px;
+
+    background: #fff4b5;
+
+    border: 1px solid #c8aa4d;
+
+    color: #0b385c;
+
+    font-size: 10px;
+
+    font-weight: 600;
+
+    transition: all 0.2s ease;
+
+}
+
+
+.official-website:hover {
+
+    background: #0b385c;
+
+    color: white;
+
+    transform: translateY(-1px);
+
+}
+
+
+/* =====================================================
+   MOBILE ADJUSTMENT
+===================================================== */
+
+@media (max-width: 600px) {
+
+    .recommended-questions {
+
+        overflow-x: auto;
+
+        flex-wrap: nowrap;
+
+    }
+
+}
+
+/* =====================================================
+   CHAT WEBSITE LINK
+===================================================== */
+
+.chat-link {
+
+    color: #07558a;
+
+    font-weight: 700;
+
+    text-decoration: underline;
+
+    word-break: break-word;
+
+}
+
+
+.chat-link:hover {
+
+    color: #b08000;
+
+}
