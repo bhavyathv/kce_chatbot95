@@ -108,21 +108,49 @@ function removeTyping() {
    BOT MESSAGE
 ===================================================== */
 
-const input = document.getElementById("messageInput");
-const chatArea = document.getElementById("chatArea");
-const sendButton = document.getElementById("sendButton");
+ 
+function addBotMessage(message) {
 
+    const row = document.createElement("div");
 
-function getTime() {
+    row.className = "message-row bot-row";
 
-    const now = new Date();
+    const safeMessage = escapeHTML(message);
 
-    return now.toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit"
-    });
+    const formattedMessage = safeMessage
+        .replace(/\n/g, "<br>")
+        .replace(
+            /(https?:\/\/[^\s<]+)/g,
+            '<a href="$1" target="_blank" class="chat-link">$1</a>'
+        );
 
+    row.innerHTML = `
+        <div class="avatar">
+            K
+        </div>
+
+        <div class="bubble bot-bubble">
+
+            <div class="bot-name">
+                KCE Assistant
+            </div>
+
+            <div class="message-text">
+                ${formattedMessage}
+            </div>
+
+            <div class="message-time">
+                ${getTime()}
+            </div>
+
+        </div>
+    `;
+
+    chatArea.appendChild(row);
+
+    scrollToBottom();
 }
+
 
 
 /* =====================================================
